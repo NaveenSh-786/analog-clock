@@ -1,64 +1,167 @@
-*{
+/* Reset and Base Styles */
+
+* {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
-    font-family: sans-serif;
-}
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background:linear-gradient(40deg,#7540ae,#4a0cbd,#6b686f,#4a0cbd,#7540ae) ;
-}
-.container{
-    position: relative;
-}
-.clock{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background-color: #7540ae;
-    border: 2px solid rebeccapurple;
-    box-shadow:0px 0px 50px rgb(149, 113, 188) ;
-    color: rgb(203, 166, 236);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.clock span{
-    position: absolute;
-    transform: rotate(calc(30deg * var(--i)));
-    inset: 12px;
-    text-align: center;
-}
-.clock span b{
-    transform: rotate(calc(-30deg * var(--i)));
-    display: inline-block;
-    font-size: 20px;
-}
-.clock::before{
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #6b686f;
-    z-index: 2;
+
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 
 }
-.hand{
-    position: absolute;
+ 
+body {
+
     display: flex;
+
     justify-content: center;
-    align-items: flex-end;
-    
+
+    align-items: center;
+
+    min-height: 100vh;
+
+    background: linear-gradient(40deg, #7540ae, #4a0cbd, #6b686f, #4a0cbd, #7540ae);
+
+    background-size: 400% 400%;
+
+    animation: gradientShift 15s ease infinite;
+
 }
-.hand i{
+ 
+/* Container */
+
+.container {
+
+    position: relative;
+
+}
+ 
+/* Clock Face */
+
+.clock {
+
+    width: 320px;
+
+    height: 320px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(circle, #1c1c1c 60%, #101010);
+
+    border: 4px solid #5c2ea8;
+
+    box-shadow:
+
+        0 0 25px rgba(92, 46, 168, 0.8),
+
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+ 
+/* Clock Numbers */
+
+.clock span {
+
     position: absolute;
-    background-color:var(--clr);
-    width: 4px;
-    height: var(--h);
-    border-radius:8px ;
-    
+
+    inset: 20px;
+
+    text-align: center;
+
+    transform: rotate(calc(30deg * var(--i)));
+
 }
+ 
+.clock span b {
+
+    display: inline-block;
+
+    transform: rotate(calc(-30deg * var(--i)));
+
+    font-size: 18px;
+
+    color: #d4c3f7;
+
+    font-weight: 600;
+
+}
+ 
+/* Clock Center Dot */
+
+.clock::before {
+
+    content: '';
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #d4c3f7;
+
+    z-index: 10;
+
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+
+}
+ 
+/* Hands Common Style */
+
+.hand {
+
+    position: absolute;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    transform-origin: bottom center;
+
+}
+ 
+.hand i {
+
+    display: block;
+
+    width: 4px;
+
+    height: var(--h);
+
+    background: var(--clr);
+
+    border-radius: 4px;
+
+    box-shadow: 0 0 8px var(--clr);
+
+    transition: transform 0.3s ease-in-out;
+
+}
+ 
+/* Gradient Animation for Background */
+
+@keyframes gradientShift {
+
+    0% { background-position: 0% 50%; }
+
+    50% { background-position: 100% 50%; }
+
+    100% { background-position: 0% 50%; }
+
+}
+
+ 
