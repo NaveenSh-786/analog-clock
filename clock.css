@@ -9,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:linear-gradient(40deg,#7540ae,#4a0cbd) ;
+    background:linear-gradient(40deg,#7540ae,#4a0cbd,#6b686f,#4a0cbd,#7540ae) ;
 }
 .container{
     position: relative;
@@ -44,6 +44,7 @@ body{
     height: 8px;
     border-radius: 50%;
     background-color: #6b686f;
+    z-index: 2;
 
 }
 .hand{
@@ -57,6 +58,7 @@ body{
     position: absolute;
     background-color:var(--clr);
     width: 4px;
-    height: 70px;
+    height: var(--h);
     border-radius:8px ;
+    
 }
